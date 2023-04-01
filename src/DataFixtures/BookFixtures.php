@@ -12,7 +12,7 @@ class BookFixtures extends Fixture
     {
         for ($i = 0; $i < 20; $i++) {
             $livre = new Book();
-            $livre->setTitle(sprintf('Livre-%d', $i));
+            $livre->setTitle(sprintf('Livre %d', $i));
             $livre->setCoverText(sprintf('Numéro : %d', $i));
             $manager->persist($livre);
         }
