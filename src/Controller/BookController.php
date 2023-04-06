@@ -16,7 +16,7 @@ class BookController extends AbstractController
 function getAllBooks(BookRepository $bookRepository, SerializerInterface $serializer): JsonResponse
     {
     $bookList = $bookRepository->findAll();
-    return $this->json($bookList, $status = 200, $headers = [], ['groups' => 'getBooks']);git add
+    return $this->json($bookList, $status = 200, $headers = [], ['groups' => 'getBooks']);
     // $jsonBookList = $serializer->serialize($bookList, 'json', ['groups'=>'getBooks']);
     // return new JsonResponse($jsonBookList, Response::HTTP_OK, [], true);
 }
