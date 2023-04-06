@@ -11,7 +11,7 @@ class AppFixtures extends Fixture
 {
     public function load(ObjectManager $manager): void
     {
-        $listAuthor = [];
+        $listAuthors = [];
         for ($i = 0; $i < 10; $i++) {
             // Création des auteurs
             $author = new Author();
@@ -20,7 +20,7 @@ class AppFixtures extends Fixture
             $manager->persist($author);
             
             // Sauvegarde de l'auteur dans un tableau
-            $listAuthor[] = $author;
+            $listAuthors[] = $author;
         }
         
         // Création des livres
@@ -31,7 +31,7 @@ class AppFixtures extends Fixture
             $book->setCoverText(sprintf('Numéro : %d', $i));
             
             // Pour lier le livre à un auteur pris au hasard dans le tableau des auteurs :
-            $book->setAuthor($listAuthor[array_rand($listAuthor)]);
+            $book->setAuthor($listAuthors[array_rand($listAuthors)]);
             
             $manager->persist($book);
         }
