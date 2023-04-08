@@ -10,7 +10,7 @@ use Symfony\Component\Serializer\SerializerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class AuthorController extends AbstractController {
-    #[ Route( '/api/authors/', name: 'authors' ) ]
+    #[ Route( '/api/authors/', name: 'authors', methods:['GET'] ) ]
 
     public function getAllAuthors( AuthorRepository $authorRepository, SerializerInterface $serializer ): JsonResponse {
         $authorsList = $authorRepository->findAll();
@@ -18,7 +18,7 @@ class AuthorController extends AbstractController {
         return new JsonResponse( $jsonAuthorsList, Response::HTTP_OK, [], true );
     }
 
-    #[ Route( '/api/authors/{id}', name: 'detailAuthor' ) ]
+    #[ Route( '/api/authors/{id}', name: 'detailAuthor', methods:['GET'] ) ]
 
     public function getAuthor( int $id, AuthorRepository $authorRepository, SerializerInterface $serializer ): JsonResponse {
         $author = $authorRepository->find( $id );
